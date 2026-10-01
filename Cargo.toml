@@ -1,0 +1,39 @@
+[package]
+name = "orbit"
+version = "0.1.0"
+edition = "2021"
+description = "A fast game launcher that finds what is installed across folders, Steam, Epic, Xbox, Roblox and Prism Launcher"
+# repository = "https://github.com/<you>/OrbitLauncher"  # fill in after publishing
+readme = "README.md"
+keywords = ["game-launcher", "egui", "steam", "windows"]
+categories = ["games"]
+# Not a library anyone should depend on, so it is not published to crates.io.
+publish = false
+
+[dependencies]
+eframe = { version = "0.36", default-features = false, features = ["default_fonts", "glow"] }
+egui = "0.36"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "ico", "webp"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rfd = "0.17"
+open = "5"
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.62", features = [
+  "Win32_Foundation",
+  "Win32_Graphics_Gdi",
+  "Win32_UI_Shell",
+  "Win32_UI_WindowsAndMessaging",
+  "Win32_System_Diagnostics_ToolHelp",
+  "Win32_System_Threading",
+  "Win32_System_Registry",
+  "Win32_System_Com",
+  "Win32_Storage_FileSystem",
+] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true

@@ -1,0 +1,9 @@
+# Build output
+/target
+
+# Editor and OS cruft
+/.vscode
+/.idea
+*.swp
+Thumbs.db
+desktop.ini

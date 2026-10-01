@@ -1,0 +1,2 @@
+# Keep text files LF in the repository whatever the working copy uses.
+* text=auto eol=lf
